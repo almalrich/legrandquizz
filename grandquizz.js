@@ -9,16 +9,16 @@ var arrObj = [{"question": "combien compte-t-on de 1ers Grands Cru Classés en F
     {"question": "Quel est le vin primeur le plus connu?", "reponses": "3", "couleur": "vert"},
     {"question": "Quest-ce qu'un Charles de Gaulles?", "reponses": "4", "couleur": "rouge"}
     ];
-let proposition = [{"repons1": "a=3", "repons2": "b=4", "repons3": "c=5", "repons4": "d=7","correct":"5"},
-    {"repons1": "a=bourgogne", "repons2": "b=bordeaux", "repons3": "c=côte du rhone", "repons4": "d=beaujolais", "correct": "beaujolais"},
-    {"repons1": "a=1", "repons2": "b=2", "repons3": "c=3", "repons4": "d=4", "correct": "2"},
-    {"repons1": "a=un champignon", "repons2": "b=un puceron", "repons3": "c=une araignée", "repons4": "d=une bactérie", "correct": "un puceron"},
-    {"repons1": "a=blanc sec", "repons2": "b=blanc Moelleux", "repons3": "c=rosé", "repons4": "d=rouge", "correct": "rouge"},
-    {"repons1": "a=35cl", "repons2": "b=50cl", "repons3": "c=70cl", "repons4": "d=75cl", "correct": "75cl"},
-    {"repons1": "a=rouge", "repons2": "b=verte", "repons3": "c=jaune", "repons4": "d=noire", "correct": "verte"},
-    {"repons1": "a=alsace", "repons2": "b=bourgogne", "repons3": "c=champagne", "repons4": "d=beaujolais", "correct": "Alsace"},
-    {"repons1": "a=loire", "repons2": "b=bordeaux", "repons3": "c=beaujolais", "repons4": "d=alsace", "correct": "beaujolais"},
-    {"repons1": "a=une carafe de decantation", "repons2": "b=un couteau", "repons3": "c=une sorte de verre à boire", "repons4": "d=un tirebouchon", "correct": "un tirebouchon"}];
+let proposition = [{"repons1": "3", "repons2": "4", "repons3": "5", "repons4": "7","correct":"5"},
+    {"repons1": "bourgogne", "repons2": "bordeaux", "repons3": "côte du rhone", "repons4": "beaujolais", "correct": "beaujolais"},
+    {"repons1": "1", "repons2": "2", "repons3": "3", "repons4": "4", "correct": "2"},
+    {"repons1": "un champignon", "repons2": "un puceron", "repons3": "une araignée", "repons4": "une bactérie", "correct": "un puceron"},
+    {"repons1": "blanc sec", "repons2": "blanc Moelleux", "repons3": "rosé", "repons4": "rouge", "correct": "rouge"},
+    {"repons1": "35cl", "repons2": "50cl", "repons3": "70cl", "repons4": "75cl", "correct": "75cl"},
+    {"repons1": "rouge", "repons2": "verte", "repons3": "jaune", "repons4": "noire", "correct": "verte"},
+    {"repons1": "alsace", "repons2": "bourgogne", "repons3": "champagne", "repons4": "beaujolais", "correct": "Alsace"},
+    {"repons1": "loire", "repons2": "bordeaux", "repons3": "beaujolais", "repons4": "alsace", "correct": "beaujolais"},
+    {"repons1": "une carafe de decantation", "repons2": "un couteau", "repons3": "une sorte de verre à boire", "repons4": "un tirebouchon", "correct": "un tirebouchon"}];
 
 
 let bonnereponse=0;
@@ -26,6 +26,28 @@ let mauvaisereponse=0;
 let score=0;
 let clik=0;
 let i=0;
+let seconde = "00";
+let minute = "00";
+let temps1;
+function temps()
+    {
+        $("#temps").html(minute + ":" + seconde);
+        seconde++;
+        temps1=setTimeout(temps, 1000);
+
+
+        if (seconde == 60) {
+            minute++;
+            seconde = 0;
+        }
+
+    }
+
+$("#time").click (function () {
+
+temps();
+
+});
 
 $("#questions").html(arrObj[0].question);
 $("#a1").html(proposition[0].repons1);
@@ -34,15 +56,19 @@ $("#a3").html(proposition[0].repons3);
 $("#a4").html(proposition[0].repons4);
 
 
+$("#rep").hide();
 
 for (let l=1; l<=4; l++){
     $("#a"+l).click(function () {
-console.log("B :"+arrObj[i].reponses);
+
+
+        console.log("B :"+arrObj[i].reponses);
 console.log("U :"+ l);
 if (arrObj[i].reponses== l){
     score++;
     console.log("score : " +score);
     bonnereponse++;
+
 }
 else{
     mauvaisereponse++;
@@ -51,20 +77,31 @@ else{
 
 
 }
+
         clik++;
         i++;
         if(clik>9){
             $("#total").hide()
             $("#rep").show()
             resultat();
+            clearTimeout(temps1);
+            $("#times").html(minute+":"+seconde);
+
         }
 
 
-        $("#questions").html(arrObj[i].question);
-        $("#a1").html(proposition[i].repons1);
-        $("#a2").html(proposition[i].repons2);
-        $("#a3").html(proposition[i].repons3);
-        $("#a4").html(proposition[i].repons4);
+
+        $("#questions").fadeOut(1000, function(){
+
+            $("#questions").html(arrObj[i].question);
+            $("#a1").html(proposition[i].repons1);
+            $("#a2").html(proposition[i].repons2);
+            $("#a3").html(proposition[i].repons3);
+            $("#a4").html(proposition[i].repons4);
+
+            $("#questions").fadeIn(1500);
+        });
+
 
 
     });
@@ -74,5 +111,7 @@ else{
 function resultat () {
     $("#bonnes").html("vous avez"+" "+ score+" "+"bonnes réponses");
     $("#mauvaises").html("et vous avez"+" "+mauvaisereponse+" "+"mauvaises réponses");
+    $("#rep").show()
 }
+
 
