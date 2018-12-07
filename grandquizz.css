@@ -1,9 +1,8 @@
 html, body {
-  background-image: url("vinquizz.jpg");
+    background-image: url("vinquizz.jpg");
 }
 
-h1
-{
+h1 {
     color: beige;
     text-shadow: 2px 2px gray;
     display: flex;
@@ -11,8 +10,7 @@ h1
 
 }
 
-#temps
-{
+#temps {
     margin-left: 45%;
     display: flex;
     justify-content: center;
@@ -20,23 +18,21 @@ h1
     background-color: beige;
     width: 100px;
 }
-#times
-{
+
+#times {
     background-color: beige;
     width: 100px;
     height: 50px;
 }
 
-#time
-{
+#time {
     margin-left: 46%;
     border-radius: 100%;
     font-size: 3vh;
 }
 
 
-#questions
-{
+#questions {
     font-size: 4vh;
     margin-top: 100px;
     width: 100%;
@@ -45,8 +41,7 @@ h1
     text-align: center;
 }
 
-.repo
-{
+.repo {
     display: flex;
     justify-content: space-between;
     width: 24%;
@@ -57,40 +52,35 @@ h1
     margin-top: 7vh;
     font-size: 3vh;
 }
-#a1
-{
+
+#a1 {
     word-break: break-all;
     background-color: yellow;
 }
 
-#a2
-{
+#a2 {
     word-break: break-all;
     background-color: blue;
 }
 
-#a3
-{
+#a3 {
     word-break: break-all;
     background-color: green;
 }
 
-#a4
-{
+#a4 {
     word-break: break-all;
     background-color: red;
 }
 
-#reponse
-{
+#reponse {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 
 }
 
-#bonnes
-{
+#bonnes {
     display: flex;
     justify-content: center;
     margin-left: 27%;
@@ -100,8 +90,7 @@ h1
     height: 15%;
 }
 
-#mauvaises
-{
+#mauvaises {
     display: flex;
     justify-content: center;
     margin-left: 27%;
@@ -112,8 +101,7 @@ h1
 }
 
 
-#bonnerep
-{
+#bonnerep {
     font-size: 25px;
     display: flex;
     justify-content: center;
