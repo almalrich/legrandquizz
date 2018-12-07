@@ -1,7 +1,5 @@
 html, body {
-    margin: 0;
-    padding: 0;
-    background-image: url("vinquizz.jpg");
+  background-image: url("vinquizz.jpg");
 }
 
 h1
@@ -15,7 +13,7 @@ h1
 
 #temps
 {
-
+    margin-left: 45%;
     display: flex;
     justify-content: center;
     font-size: 3vh;
@@ -31,7 +29,9 @@ h1
 
 #time
 {
+    margin-left: 46%;
     border-radius: 100%;
+    font-size: 3vh;
 }
 
 
@@ -94,7 +94,7 @@ h1
     display: flex;
     justify-content: center;
     margin-left: 27%;
-    font-size: 6vw;
+    font-size: 4vw;
     background-color: green;
     width: 50%;
     height: 15%;
@@ -105,11 +105,12 @@ h1
     display: flex;
     justify-content: center;
     margin-left: 27%;
-    font-size: 5vw;
+    font-size: 3vw;
     background-color: red;
     width: 50%;
     height: 15%;
 }
+
 
 #bonnerep
 {

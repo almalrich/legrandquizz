@@ -29,6 +29,9 @@ let i=0;
 let seconde = "00";
 let minute = "00";
 let temps1;
+
+
+
 function temps()
     {
         $("#temps").html(minute + ":" + seconde);
@@ -46,6 +49,8 @@ function temps()
 $("#time").click (function () {
 
 temps();
+
+
 
 });
 
@@ -72,7 +77,7 @@ if (arrObj[i].reponses== l){
 }
 else{
     mauvaisereponse++;
-    $("#bonnerep").append("pour la question"+" "+arrObj[i].question+" "+"la reponse étais"+" "+proposition[i].correct+"<br>");
+    $("#bonnerep").append("pour la question"+" "+arrObj[i].question+" "+"la reponse était"+" "+proposition[i].correct+"<br>");
     console.log("mauvaisereponse"+mauvaisereponse);
 
 
@@ -111,7 +116,7 @@ else{
 function resultat () {
     $("#bonnes").html("vous avez"+" "+ score+" "+"bonnes réponses");
     $("#mauvaises").html("et vous avez"+" "+mauvaisereponse+" "+"mauvaises réponses");
-    $("#rep").show()
+    $("#rep").show();
 }
 
 
